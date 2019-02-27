@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: #ccc;
+  color: #ffffff;
+  padding: 15px;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px;
+  margin-bottom: 20px;
+  background-color: #190099;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.menu li:hover {
+  background-color: #0099cc;
+}
+.just{
+	  text-align: justify;
+	  text-justify: inter-word;
+}
+header #banner{
+	width:100%;
+}
+.topnav {
+  margin-top:-2px;
+  overflow: hidden;
+  background-color: #190099;
+}
+
+.topnav a {
+  float: none;
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #FFFFFF;
+  color: black;
+}
+.Speakers{
+	color:#ffffff;
+	box-align:center;
+	font-size:17px;
+}
+
+.centered {
+  position: relative;
+  top: 43px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.container{
+  width:80%;
+  margin:auto;
+  overflow:hidden;
+}
+.whole{
+    background-color:#FFFFFF;
+    display:flex;
+	border-radius:5px;
+}
+.card-container {
+  cursor: pointer;
+  height: 150px;
+  perspective: 600;
+  position: relative;
+  width: 170px;
+}
+.card {
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+  width: 100%;
+}
+.card:hover {
+  transform: rotateY(180deg);
+}
+.card .side {
+  backface-visibility: hidden;
+  border-radius: 5px;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+}
+.card .back {
+  background: #eaeaed;
+  color: #000000;
+  line-height: 150px;
+  text-align: center;
+  font-size:13px;
+  transform: rotateY(180deg);
+}
+.container1{
+  position:relative;
+  width:100%;
+  margin:auto;
+  overflow:hidden;
+}
+.aside {
+  background-color: #190099;
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.footer {
+  background-color: #190099;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  padding: 5px;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <header>
+        <div class="container1">
+          <div id="branding">
+          <img id ="banner" src="https://petpes2019.nitk.ac.in/img/main6.png"/>
+         
+        
+          </div>
+        </div>
+      </header>
+</div>
+<div class="topnav">
+
+    <a href="#"><i class="fa fa-home"></i>&nbsp;Home</a>
+    <a href="https://petpes2019.nitk.ac.in/CFP.html"><i class="fa fa-clone"></i>&nbsp;CFP</a>
+     <a href="https://petpes2019.nitk.ac.in/Commitee.html"><i class="fa fa-users"></i>&nbsp;Commitee</a>
+    <!--<a href=""><i class="fa fa-user"></i>&nbsp;Authors Information</a>-->
+    <a href="https://petpes2019.nitk.ac.in/venue.html"><i class="fa fa-map-marker"></i>&nbsp;Venue</a>
+    <a href="https://petpes2019.nitk.ac.in/Registration.html"><i class="fa fa-align-justify"></i>&nbsp;Registration</a>
+    <a href="https://petpes2019.nitk.ac.in/Accomodation.html"><i class="fa fa-bed"></i>&nbsp;Accommodation</a>
+    <a href="https://petpes2019.nitk.ac.in/Announcements.html"><i class="fa fa-bullhorn"></i>&nbsp;Announcements</a>
+    <a href="https://petpes2019.nitk.ac.in/Contact.html"><i class="fa fa-phone"></i>&nbsp;Contacts</a>
+</div>
+<marquee behavior="alternate" direction="left" span style="color:#000080; font-size:17px;" >
+    Accepted and presented papers of PETPES-2019 may be included in IEEE Xplore® Digital Library through the IEEE Conference Publications Program (CPP)<b></span></marquee>
+    
+<div class="row">
+  <div class="col-3 col-s-3 menu">
+    <ul>
+      <li>		
+		<div id="niv8" style="font-family:Times New Roman Georgia;font-size:25px;">
+		Contact<br><br>
+		</div>
+		<span class="contact">petpes2019[AT]ee.nitk.ac.in<span>
+	</li>
+      <li>	<div id="niv4">
+		<div id="niv9" style="font-family:Times New Roman Georgia;font-size:22px;" font color="blue">
+		Keynote and Industry Speakers<br><br>
+		
+		</div>
+		<a href="http://ee.iitd.ernet.in/people/bhimsingh.html" style="text-decoration:none;"><span class="Speakers">Bhim Singh,IIT Delhi</span></a><br>
+		<a href="https://www.iitr.ac.in/~EE/pramgfee" style="text-decoration:none;"><span class="Speakers">Pramod Agarwal,IIT Roorkee</span></a><br>
+		<a href="https://www.w3schools.com" style="text-decoration:none;"><span class="Speakers">B.G.Fernandes,IIT Bombay</span></a><br>
+		<a href="http://personprofil.aau.dk/101000?lang=en" style="text-decoration:none;"><span class="Speakers">Frede Blaabjerg,Denmark</span></a><br>
+		<a href="https://www.uvic.ca/engineering/ece/faculty-and-staff/home/faculty/bhatashoka-k.-s..php" style="text-decoration:none;"><span class="Speakers">Ashok Bhat,University of Victoria</span></a><br>
+		<a href="https://www.concordia.ca/faculty/akshaykumar-rathore.html" style="text-decoration:none;"><span class="Speakers">Akshay K Rathore,Concordia</span></a><br>
+		<a href="https://engineering.tamu.edu/electrical/profiles/penjeti.html" style="text-decoration:none;"><span class="Speakers">Prasad Enjeti,Texas AMU</span></a><br>
+		<a href="https://www.w3schools.com" style="text-decoration:none;"><span class="Speakers" >Kaaliyappan,CPRI</span></a><br>
+		<a href="https://www.w3schools.com" style="text-decoration:none;"><span class="Speakers">Priyaranjan Mishra,Philips</span></a><br>
+		</div></li>
+      <li><div id="niv5">
+		<div id="niv10"style="font-family:Times New Roman Georgia;font-size:25px;">
+        Important Dates
+        <br>
+        <br>
+		</div>
+        <span class="date">Paper Submission Deadline :</span><br>
+		&nbsp;&nbsp;<span style="font-size:15px;">March 18, 2019</b></span><br>
+		<span class="date">Acceptance notification Starts :</span><br>
+		&nbsp;&nbsp;<span style="font-size:15px;">June 1, 2019</b></span><br>
+		<span class="date">Acceptance Notification Ends :</span><br>
+		&nbsp;&nbsp;<span style="font-size:15px;">June 7, 2019</b></span><br>
+		<span class="date">Registration Starts :</span><br>
+		&nbsp;&nbsp;<span style="font-size:15px;">June 25, 2019</b></span><br>
+		<span class="date">Registration Ends :</span><br>
+		&nbsp;&nbsp;<span style="font-size:15px;">July 10,2019</b></span><br>
+		<span class="date">CRC Submission Starts :</span><br>
+		&nbsp;&nbsp;<span style="font-size:15px;">June 25, 2019</b></span><br>
+		<span class="date">CRC Submission Ends :</span><br>
+		&nbsp;&nbsp;<span style="font-size:15px;">July 10,2019</b></span><br>
+		<span class="date">Conference Dates :</span><br>
+		&nbsp;&nbsp;<span style="font-size:15px;">August 29 - 31, 2019</b></span><br>	
+		</div></li>
+    </ul>
+  </div>
+
+  <div class="col-6 col-s-9">
+    <form action="./registration.php" method="POST" style="max-width:550px;margin:auto; font-size:15px;"><hr>
+        <h2>Registration Form</h2><hr><br>
+        <div class="input-container">
+          Name Of Registrant &nbsp;&nbsp;<i class="fa fa-user icon"></i>
+          <input class="input-field" type="text" name="usrnm" style="width:100%;" required>
+        </div><br>
+      
+        <div class="input-container">
+          Email ID &nbsp;<i class="fa fa-envelope icon"></i>
+          <input class="input-field" type="text" name="email" style="width:100%" required>
+        </div><br>
+          <div class="input-container">
+          Affiliation &nbsp;
+          <input class="input-field" type="text" name="Affiliation" style="width:100%" required>
+        </div><br>
+        <div class="input-container">
+          Transaction ID &nbsp;<i class="fa fa-key icon"></i>
+          <input class="input-field" type="password" name="Transid" style="width:100%" required>
+        </div><br>
+        <div class="input-container">
+        Type of registration <br><label class="radio-inline"><input type="radio" name="type" value="A"> Author</label><br>
+        <label class="radio-inline"><input type="radio" name="type" value="P"> Participant Only<br>
+        </div><br>
+            <div class="input-container">
+          Date of Payment &nbsp;
+          <input name="bday" type="date" style="width:100%" required>
+        </div><br>
+        <button type="submit" class="btn">Register</button>
+      </form>
+  </div>
+
+  <div class="col-3 col-s-3 menu">
+    <ul>
+      <li><a href="https://petpes2019.nitk.ac.in/Information_for_Digest1.html" style="text-decoration:none; font-size: larger">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Speakers">Paper Submission</span></a></li>
+      <li><a href="https://petpes2019.nitk.ac.in/CFP1.html" style="text-decoration:none; font-size: larger">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span color="#383838" class="Speakers">Call For Papers</span></a></li>
+      <li><a href="https://petpes2019.nitk.ac.in/Registration1.html" style="text-decoration:none; font-size: larger">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span color="#383838" class="Speakers">Registration</span></a></li>
+      <li><a href="https://petpes2019.nitk.ac.in/schedule1.html" style="text-decoration:none; font-size: larger">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span color="#383838" class="Speakers">Program Schedule</span></a></li>
+    </ul>
+  </div>
+  <div class="col-3 col-s-12">
+    <div class="aside">
+      <h1>Sponsors</h1>
+      <img src="https://petpes2019.nitk.ac.in/img/nitk_logo.png" width="125" height="100"/>
+     &nbsp;&nbsp;<img src="https://dummyimage.com/600x400/ffffff/1522d4&text=TEQIP-III" width="125" height="100"/>
+      <h2>Technical Sponsors</h2>
+      <img src="http://www.ieee-mangalore.org/wp-content/uploads/2017/07/IEEE-Mlore-Name-Logo.png" width="125" height="100"/>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <h2>Places nearby to visit</h2>  
+  <div class="whole">
+  <div class="card-container">
+    <div class="card"><a href="https://www.tripadvisor.in/Attraction_Review-g737164-d1202679-Reviews-St_Mary_s_Island-Udupi_Udupi_District_Karnataka.html">
+      <div class="side"><img src="https://www.nativeplanet.com/photos/212x302x100/2018/09/photo-91-171953-1.jpg" alt="St. Mary's Island, Udupi"></div>
+      <div class="side back">St. Mary's Island, Udupi</div>
+      </a>
+    </div>
+  </div>&nbsp;&nbsp;&nbsp;
+  <div class="card-container">
+    <div class="card"><a href="https://en.wikipedia.org/wiki/St._Lawrence_Shrine">
+      <div class="side"><img src="http://www.ieee-discover.org/sites/default/files/styles/medium/public/field/image/attur-church-karkala-karnataka.jpg?itok=v17AHbG-" alt="Attur Church, Karkala, Udupi"></div>
+      <div class="side back">Attur Church,Udupi</div>
+    </div>
+    </a>
+  </div>
+  &nbsp;&nbsp;&nbsp;
+  <div class="card-container">
+    <div class="card"><a href="https://www.tripadvisor.in/Attraction_Review-g737164-d1735658-Reviews-Sri_Krishna_Temple-Udupi_Udupi_District_Karnataka.html">
+      <div class="side"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTawn_ZTEekw1AuTrJpgYqWD5ntXoVaUtAQtKad4v1b8PIu919" alt="Sri Krishna Temple,Udupi"></div>
+      <div class="side back">Sri Krishna Temple,Udupi</div>
+    </div>
+    </a>
+  </div>
+  &nbsp;&nbsp;&nbsp;
+  <div class="card-container">
+    <div class="card"><a href="https://www.tripadvisor.in/Attraction_Review-g297629-d11034834-Reviews-Kemmangundi_Peak-Chikmagalur_Chikkamagaluru_District_Karnataka.html">
+      <div class="side"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/2005-kemmangundi.jpg/220px-2005-kemmangundi.jpg" alt="Kemmangundi"></div>
+      <div class="side back">Kemmangundi</div>
+    </div>
+    </a>
+  </div>
+  &nbsp;&nbsp;&nbsp;
+  <div class="card-container">
+    <div class="card"><a href="https://www.tripadvisor.in/Attraction_Review-g737164-d1735658-Reviews-Sri_Krishna_Temple-Udupi_Udupi_District_Karnataka.html">
+      <div class="side"><img src="https://media-cdn.tripadvisor.com/media/photo-s/09/42/51/31/bekal-fort.jpg" alt="Bekal Fort, Kasargod"></div>
+      <div class="side back">Bekal Fort, Kasargod</div>
+    </div>
+    </a>
+  </div>
+  &nbsp;&nbsp;&nbsp;
+  <div class="card-container">
+    <div class="card"><a href="https://www.tripadvisor.in/Attractions-g641714-Activities-Madikeri_Kodagu_Coorg_Karnataka.html">
+      <div class="side"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Raja_seat_madikeri.JPG" alt="Madikeri, Kodagu"></div>
+      <div class="side back">Madikeri, Kodagu</div>
+    </div>
+    </a>
+  </div>
+  </div>
+  </div>
+
+<div class="footer">
+    <p style="font-size:10px;">Copyrights &nbsp; &copy; PETPES-2019</p>
+</div>
+
+</body>
+</html>
